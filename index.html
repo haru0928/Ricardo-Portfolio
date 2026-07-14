@@ -614,21 +614,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
   const sections = sectionLinks
     .map(link => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
+  const setActiveSection = sectionId => {
+    sectionLinks.forEach(link => {
+      const active = link.getAttribute('href') === `#${sectionId}`;
+      link.classList.toggle('active', active);
+      if (active) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+  const isPageBottom = () =>
+    window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
   if ('IntersectionObserver' in window) {
     const sectionObserver = new IntersectionObserver(entries => {
+      if (isPageBottom()) {
+        setActiveSection('contact');
+        return;
+      }
       const visible = entries.find(entry => entry.isIntersecting);
       if (!visible) return;
-      sectionLinks.forEach(link => {
-        const active = link.getAttribute('href') === `#${visible.target.id}`;
-        link.classList.toggle('active', active);
-        if (active) {
-          link.setAttribute('aria-current', 'location');
-        } else {
-          link.removeAttribute('aria-current');
-        }
-      });
+      setActiveSection(visible.target.id);
     }, { rootMargin: '-20% 0px -65%', threshold: 0.01 });
     sections.forEach(section => sectionObserver.observe(section));
+    window.addEventListener('scroll', () => {
+      if (isPageBottom()) setActiveSection('contact');
+    }, { passive: true });
   }
 
   // Live clock (Pacific Time)
