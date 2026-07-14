@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ricardo Escalante is an IT and cloud support specialist focused on systems administration, troubleshooting, AWS, Microsoft 365, and clear technical documentation.">
+<meta name="theme-color" content="#0a0d10">
+<title>Ricardo Escalante | IT &amp; Cloud Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#0a0d10;
+  --panel:#11151a;
+  --panel-2:#0d1114;
+  --line:#232b32;
+  --line-soft:#1a2027;
+  --text:#dbe2e8;
+  --muted:#7e8b96;
+  --amber:#ffb020;
+  --amber-dim:#8a5f16;
+  --cyan:#4fd1e0;
+  --good:#3ddc84;
+  --red:#ff6b5e;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;}
+body{
+  font-family:'IBM Plex Sans', sans-serif;
+  background:
+    linear-gradient(var(--line-soft) 1px, transparent 1px) 0 0/100% 42px,
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px) 0 0/42px 100%,
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:#151107;}
+.skip-link{position:fixed;left:1rem;top:-5rem;z-index:200;background:var(--amber);color:#151107;padding:.7rem 1rem;border-radius:5px;font-weight:600;transition:top .15s ease;}
+.skip-link:focus{top:1rem;}
+.mono{font-family:'IBM Plex Mono', monospace;}
+.panel{background:linear-gradient(145deg,rgba(17,21,26,.98),rgba(13,17,20,.98));border:1px solid var(--line);border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,.18);}
+.hairline{border-color:var(--line);}
+.led{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 6px var(--good);animation:pulse 2.2s ease-in-out infinite;}
+.led.amber{background:var(--amber);box-shadow:0 0 6px var(--amber);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.path-link{font-family:'IBM Plex Mono',monospace;color:var(--muted);transition:color .15s ease;}
+.path-link:hover{color:var(--amber);}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;padding:3px 9px;border:1px solid var(--line);border-radius:3px;color:var(--muted);}
+.tag.on{color:var(--amber);border-color:var(--amber-dim);background:rgba(255,176,32,.06);}
+.tag.info{color:var(--cyan);border-color:#1c4a52;background:rgba(79,209,224,.06);}
+.tag.success{color:var(--good);border-color:#1f5c3a;background:rgba(61,220,132,.06);}
+.card{background:linear-gradient(145deg,rgba(17,21,26,.98),rgba(13,17,20,.98));border:1px solid var(--line);border-radius:8px;box-shadow:0 15px 45px rgba(0,0,0,.12);transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;}
+.card:hover{border-color:var(--amber-dim);transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,0,0,.22);}
+.skill-chip{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 11px;border:1px solid var(--line);border-radius:4px;background:var(--panel-2);color:var(--muted);transition:all .15s ease;}
+.skill-chip:hover{color:var(--amber);border-color:var(--amber-dim);}
+.btn-primary{background:var(--amber);color:#151107;font-weight:600;border-radius:5px;box-shadow:0 8px 25px rgba(255,176,32,.12);transition:background .15s ease,transform .15s ease,box-shadow .15s ease;}
+.btn-primary:hover{background:#ffc351;transform:translateY(-1px);box-shadow:0 12px 30px rgba(255,176,32,.2);}
+.btn-outline{border:1px solid var(--line);border-radius:5px;color:var(--text);transition:border-color .15s ease,color .15s ease,transform .15s ease;}
+.btn-outline:hover{border-color:var(--amber-dim);color:var(--amber);}
+.btn-outline:hover{transform:translateY(-1px);}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;}
+.section-title{font-family:'IBM Plex Mono',monospace;font-weight:600;}
+.divider{border-top:1px solid var(--line);}
+.spark{stroke:var(--amber);stroke-width:1.5;fill:none;}
+.status-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line-soft);font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.status-row:last-child{border-bottom:none;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+  .card:hover,.btn-primary:hover,.btn-outline:hover{transform:none;}
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top status strip -->
+<div class="bg-[#0d1114] border-b hairline text-[11px] mono">
+  <div class="max-w-7xl mx-auto px-6 h-8 flex items-center justify-between text-slate-500">
+    <div class="flex items-center gap-x-2">
+      <span class="led"></span>
+      <span>ALL SYSTEMS OPERATIONAL</span>
+    </div>
+    <div class="hidden sm:flex items-center gap-x-6">
+      <span id="clock-display">--:--:-- PT</span>
+      <span>LOS ANGELES, CA · REMOTE-READY</span>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="bg-[#0a0d10]/95 backdrop-blur border-b hairline sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-16">
+      <a href="#main-content" class="flex items-center gap-x-3" aria-label="Ricardo Escalante, home">
+        <div class="w-8 h-8 border border-[var(--amber-dim)] rounded flex items-center justify-center text-[var(--amber)]">
+          <i class="fa-solid fa-terminal text-sm" aria-hidden="true"></i>
+        </div>
+        <span class="mono font-semibold text-lg tracking-tight">escalante<span class="text-[var(--amber)]">@</span>support</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-x-7 text-sm">
+        <a href="#about" class="path-link">~/about</a>
+        <a href="#education" class="path-link">~/education</a>
+        <a href="#certifications" class="path-link">~/certs</a>
+        <a href="#projects" class="path-link">~/projects</a>
+        <a href="#skills" class="path-link">~/skills</a>
+      </div>
+
+      <div class="flex items-center gap-x-4">
+        <a href="resume.html"
+           class="hidden md:inline-flex items-center px-4 py-2 text-sm btn-primary">
+          <i class="fa-solid fa-file-lines mr-2" aria-hidden="true"></i>Résumé
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-slate-400" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<!-- Hero -->
+<section class="max-w-7xl mx-auto px-6 pt-14 sm:pt-16 pb-20">
+  <div class="grid md:grid-cols-12 gap-10 items-start">
+    <div class="md:col-span-7">
+      <div class="inline-flex items-center gap-x-2 px-3 py-1 border hairline rounded mb-6">
+        <span class="led"></span>
+        <span class="mono text-xs text-[var(--muted)]">OPEN_TO_REMOTE = true</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl leading-[1.05] font-semibold tracking-tight mb-5">
+        Ricardo Escalante
+      </h1>
+      <p class="mono text-[var(--amber)] text-lg mb-6">IT &amp; Cloud Support Specialist</p>
+
+      <p class="max-w-lg text-lg text-[var(--muted)] mb-8 leading-relaxed">
+        I keep systems running and people unblocked through structured troubleshooting,
+        clear documentation, and hands-on work across Active Directory, Microsoft 365,
+        and cloud infrastructure.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-10">
+        <a href="#projects" class="inline-flex items-center justify-center px-7 py-3.5 btn-primary text-[15px]">
+          View Projects
+        </a>
+        <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 btn-outline text-[15px]">
+          Get In Touch
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 min-[420px]:grid-cols-3 gap-3 sm:gap-4 max-w-md">
+        <div class="panel px-4 py-3">
+          <div class="mono text-2xl text-[var(--amber)]" id="uptime-days">--</div>
+          <div class="text-[11px] text-[var(--muted)] mono mt-1">DAYS BUILDING</div>
+        </div>
+        <div class="panel px-4 py-3">
+          <div class="mono text-2xl text-[var(--amber)]">12+</div>
+          <div class="text-[11px] text-[var(--muted)] mono mt-1">GUIDES WRITTEN</div>
+        </div>
+        <div class="panel px-4 py-3">
+          <div class="mono text-2xl text-[var(--amber)]">3</div>
+          <div class="text-[11px] text-[var(--muted)] mono mt-1">LABS DEPLOYED</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature: live status dashboard -->
+    <div class="md:col-span-5">
+      <div class="panel overflow-hidden">
+        <div class="flex items-center justify-between px-5 py-3 border-b hairline">
+          <span class="mono text-xs text-[var(--muted)]">status_board.sys</span>
+          <div class="flex items-center gap-x-1.5">
+            <div class="w-2 h-2 rounded-full bg-[var(--red)]/60"></div>
+            <div class="w-2 h-2 rounded-full bg-[var(--amber)]/60"></div>
+            <div class="w-2 h-2 rounded-full bg-[var(--good)]/60"></div>
+          </div>
+        </div>
+        <div class="px-5 py-4">
+          <div class="status-row"><span>about</span><span class="flex items-center gap-x-2 text-[var(--good)]"><span class="led"></span>OPERATIONAL</span></div>
+          <div class="status-row"><span>education</span><span class="flex items-center gap-x-2 text-[var(--amber)]"><span class="led amber"></span>IN PROGRESS</span></div>
+          <div class="status-row"><span>certifications</span><span class="flex items-center gap-x-2 text-[var(--amber)]"><span class="led amber"></span>IN PROGRESS</span></div>
+          <div class="status-row"><span>projects</span><span class="flex items-center gap-x-2 text-[var(--good)]"><span class="led"></span>DEPLOYED</span></div>
+          <div class="status-row"><span>skills</span><span class="flex items-center gap-x-2 text-[var(--good)]"><span class="led"></span>OPERATIONAL</span></div>
+        </div>
+        <div class="px-5 py-4 border-t hairline">
+          <div class="flex items-center justify-between mb-2">
+            <span class="mono text-[11px] text-[var(--muted)]">RESOLUTION TIME (SIM)</span>
+            <span class="mono text-[11px] text-[var(--good)]">↓ TRENDING DOWN</span>
+          </div>
+          <svg viewBox="0 0 260 50" class="w-full h-12" role="img" aria-label="Simulated resolution time trending downward">
+            <polyline class="spark" points="0,38 30,32 60,35 90,22 120,26 150,14 180,18 210,8 240,12 260,6"/>
+          </svg>
+        </div>
+        <div class="px-5 py-3 border-t hairline flex items-center justify-between mono text-[11px] text-[var(--muted)]">
+          <span>uptime: <span id="uptime-hms" class="text-[var(--text)]">--:--:--</span></span>
+          <span class="text-[var(--good)]">99.9%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-16 border-t divider">
+  <div class="max-w-3xl">
+    <div class="section-label mb-2">~/about</div>
+    <h2 class="section-title text-3xl mb-6">Who I am</h2>
+    <div class="text-[15px] leading-relaxed text-[var(--muted)] space-y-4">
+      <p>
+        I hold an <span class="text-[var(--text)]">Associate of Science in Information Technology</span> from
+        Full Sail University and am now working toward a <span class="text-[var(--text)]">Bachelor of Science
+        in Cybersecurity</span> there, building on hands-on coursework in cloud architecture, virtualization,
+        systems administration, networking, and information security.
+      </p>
+      <p>
+        I like the specific kind of problem-solving that IT support requires — narrowing down a vague
+        complaint ("it's slow") into a root cause, then writing it up so the next person doesn't have
+        to start from zero. That's the muscle I've been building through home-lab projects and cloud
+        deployments while I finish school.
+      </p>
+    </div>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <span class="tag on"><i class="fa-solid fa-globe mr-1.5"></i>Remote-first preferred</span>
+      <span class="tag"><i class="fa-solid fa-location-dot mr-1.5"></i>Los Angeles, CA</span>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education" class="max-w-7xl mx-auto px-6 py-16 border-t divider bg-[var(--panel-2)]/40">
+  <div class="max-w-4xl">
+    <div class="section-label mb-2">~/education</div>
+    <h2 class="section-title text-3xl mb-8">Education</h2>
+
+    <div class="card p-8 mb-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-4">
+        <div>
+          <h3 class="font-semibold text-2xl">Bachelor of Science, Cybersecurity</h3>
+          <p class="text-[var(--amber)] mono text-sm mt-1">Full Sail University · Winter Park, FL</p>
+          <p class="text-sm text-[var(--muted)] mt-1">June 2026 – Expected June 2027</p>
+        </div>
+        <span class="tag on">IN PROGRESS</span>
+      </div>
+
+      <div class="mt-8 pt-8 border-t divider grid md:grid-cols-2 gap-x-8 gap-y-6 text-sm">
+        <div>
+          <h4 class="font-semibold mb-3 text-[var(--text)] mono text-[13px]">KEY COURSEWORK</h4>
+          <ul class="space-y-1.5 text-[var(--muted)]">
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Network Security &amp; Defense</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Ethical Hacking &amp; Penetration Testing</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Security Risk Management</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Digital Forensics</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Incident Response &amp; Threat Analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3 text-[var(--text)] mono text-[13px]">BUILDING ON</h4>
+          <ul class="space-y-1.5 text-[var(--muted)]">
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Cloud &amp; hybrid environment foundations</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Identity &amp; Access Management (IAM)</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Systems administration &amp; networking</li>
+            <li class="flex items-center gap-x-2"><i class="fa-solid fa-check text-[var(--amber)] w-4 text-xs"></i>Applied troubleshooting methodology</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-4">
+        <div>
+          <h3 class="font-semibold text-2xl">Associate of Science, Information Technology</h3>
+          <p class="text-[var(--amber)] mono text-sm mt-1">Full Sail University · Winter Park, FL</p>
+          <p class="text-sm text-[var(--muted)] mt-1">Completed May 2026</p>
+        </div>
+        <span class="tag success">COMPLETED</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications" class="max-w-7xl mx-auto px-6 py-16 border-t divider">
+  <div class="max-w-4xl">
+    <div class="section-label mb-2">~/certs</div>
+    <h2 class="section-title text-3xl mb-8">Certifications</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-7">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <span class="tag on">IN PROGRESS</span>
+            <h3 class="font-semibold text-xl mt-3">CompTIA A+</h3>
+            <p class="text-sm text-[var(--muted)] mono">Core 1 (220-1101) &amp; Core 2 (220-1102)</p>
+          </div>
+          <i class="fa-solid fa-certificate text-3xl text-[var(--amber)]"></i>
+        </div>
+        <p class="text-sm text-[var(--muted)]">
+          Studying with Professor Messer and practice exams. Expected completion:
+          <span class="text-[var(--text)] font-medium">August 2026</span>.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="tag">Hardware</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Operating Systems</span>
+          <span class="tag">Security</span>
+          <span class="tag">Troubleshooting</span>
+        </div>
+      </div>
+
+      <div class="card p-7 flex flex-col justify-center items-center text-center border-dashed">
+        <i class="fa-solid fa-plus text-2xl mb-3 text-[var(--muted)]"></i>
+        <p class="text-sm text-[var(--muted)]">Next target:
+          <span class="text-[var(--text)] font-medium">AWS Cloud Practitioner</span> or
+          <span class="text-[var(--text)] font-medium">CompTIA Network+</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="max-w-7xl mx-auto px-6 py-20 border-t divider">
+  <div class="flex items-end justify-between mb-10">
+    <div>
+      <div class="section-label mb-2">~/projects</div>
+      <h2 class="section-title text-3xl">Featured Projects</h2>
+    </div>
+    <a href="https://github.com/haru0928" target="_blank" rel="noreferrer" class="hidden md:flex items-center text-sm mono text-[var(--amber)] hover:text-[#ffc351]">
+      view all on github <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+    </a>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="card p-7 group">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="tag info">IT SUPPORT · SYSTEMS</span>
+          <h3 class="font-semibold text-2xl mt-4 mb-2">Virtualized IT Home Lab</h3>
+        </div>
+        <i class="fa-solid fa-server text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
+      </div>
+      <p class="text-[var(--muted)] mb-6 text-[15px]">
+        Built a complete Active Directory domain environment using VirtualBox. Configured users,
+        Group Policies, shared resources, and simulated common enterprise issues.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">VirtualBox</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">RDP</span>
+      </div>
+      <div class="text-sm text-[var(--muted)] space-y-1 mb-6">
+        <div>· Created and managed domain users &amp; OUs</div>
+        <div>· Implemented password policies and software deployment via GPO</div>
+        <div>· Documented troubleshooting for login failures, DNS issues, and access problems</div>
+      </div>
+      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>docs ready</span>
+        <a href="mailto:ricardoescalante835@icloud.com?subject=Virtualized%20IT%20Home%20Lab" class="text-[var(--amber)] hover:underline">request case study →</a>
+      </div>
+    </div>
+
+    <div class="card p-7 group">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="tag info">CLOUD · SUPPORT</span>
+          <h3 class="font-semibold text-2xl mt-4 mb-2">AWS Static Website &amp; CloudFront</h3>
+        </div>
+        <i class="fa-brands fa-aws text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
+      </div>
+      <p class="text-[var(--muted)] mb-6 text-[15px]">
+        Deployed and secured a static website on AWS using S3, CloudFront, Route 53, and ACM.
+        Practiced monitoring and basic troubleshooting scenarios.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">AWS S3</span><span class="tag">CloudFront</span><span class="tag">Route 53</span><span class="tag">ACM (SSL)</span><span class="tag">CloudWatch</span>
+      </div>
+      <div class="text-sm text-[var(--muted)] space-y-1 mb-6">
+        <div>· Configured secure HTTPS delivery with custom domain</div>
+        <div>· Implemented CDN for performance &amp; global reach</div>
+        <div>· Documented common issues (origin errors, cache invalidation)</div>
+      </div>
+      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>live demo available</span>
+        <a href="mailto:ricardoescalante835@icloud.com?subject=AWS%20Cloud%20Deployment" class="text-[var(--amber)] hover:underline">request demo →</a>
+      </div>
+    </div>
+
+    <div class="card p-7 group">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="tag info">DOCUMENTATION · SUPPORT</span>
+          <h3 class="font-semibold text-2xl mt-4 mb-2">IT Troubleshooting Knowledge Base</h3>
+        </div>
+        <i class="fa-solid fa-book text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
+      </div>
+      <p class="text-[var(--muted)] mb-6 text-[15px]">
+        Created a searchable collection of 12+ step-by-step troubleshooting guides for common
+        Tier 1 and Tier 2 issues, written for both technical and non-technical users.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">Markdown</span><span class="tag">GitHub</span><span class="tag">Clear Communication</span><span class="tag">Problem Solving</span>
+      </div>
+      <div class="flex flex-wrap gap-2 text-xs text-[var(--muted)] mb-6">
+        <span>Wi-Fi &amp; Network</span><span>·</span><span>Login &amp; Auth</span><span>·</span><span>Software Deployment</span><span>·</span><span>Printer Issues</span><span>·</span><span>Remote Access</span><span>·</span><span>Cloud Connectivity</span>
+      </div>
+      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>ready for onboarding</span>
+        <a href="mailto:ricardoescalante835@icloud.com?subject=IT%20Troubleshooting%20Knowledge%20Base" class="text-[var(--amber)] hover:underline">request samples →</a>
+      </div>
+    </div>
+
+    <div class="card p-7 group">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="tag info">CLOUD ADMIN · IAM</span>
+          <h3 class="font-semibold text-2xl mt-4 mb-2">Microsoft 365 Admin Sandbox</h3>
+        </div>
+        <i class="fa-brands fa-microsoft text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
+      </div>
+      <p class="text-[var(--muted)] mb-6 text-[15px]">
+        Provisioned a Microsoft 365 Developer tenant. Managed users, licenses, MFA policies,
+        Exchange mailboxes, and Teams configurations.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">Microsoft 365</span><span class="tag">Entra ID</span><span class="tag">Exchange Online</span><span class="tag">Teams Admin</span><span class="tag">MFA</span>
+      </div>
+      <div class="text-sm text-[var(--muted)] space-y-1 mb-6">
+        <div>· User provisioning &amp; license assignment</div>
+        <div>· MFA troubleshooting &amp; password resets</div>
+        <div>· Mailbox &amp; Teams access issues</div>
+      </div>
+      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>highly relevant</span>
+        <a href="mailto:ricardoescalante835@icloud.com?subject=Microsoft%20365%20Admin%20Sandbox" class="text-[var(--amber)] hover:underline">request notes →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="mt-8 text-center text-sm text-[var(--muted)]">
+    All projects include detailed documentation, screenshots, and lessons learned — available on request or on GitHub.
+  </p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="max-w-7xl mx-auto px-6 py-16 border-t divider">
+  <div class="section-label mb-2">~/skills</div>
+  <h2 class="section-title text-3xl mb-10">Skills &amp; Tools</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card p-7">
+      <div class="flex items-center gap-x-3 mb-5">
+        <i class="fa-solid fa-laptop-code text-xl text-[var(--amber)]"></i>
+        <h3 class="font-semibold text-lg">Technical &amp; Systems</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="skill-chip">Windows Server</span>
+        <span class="skill-chip">Active Directory</span>
+        <span class="skill-chip">Group Policy</span>
+        <span class="skill-chip">Virtualization (Hyper-V/VirtualBox)</span>
+        <span class="skill-chip">Networking (TCP/IP, DNS, DHCP)</span>
+        <span class="skill-chip">PowerShell Basics</span>
+      </div>
+    </div>
+
+    <div class="card p-7">
+      <div class="flex items-center gap-x-3 mb-5">
+        <i class="fa-solid fa-cloud text-xl text-[var(--cyan)]"></i>
+        <h3 class="font-semibold text-lg">Cloud &amp; Platforms</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="skill-chip">AWS (S3, CloudFront, EC2, IAM)</span>
+        <span class="skill-chip">Microsoft 365 / Entra ID</span>
+        <span class="skill-chip">Cloud Architecture Concepts</span>
+        <span class="skill-chip">Hybrid Cloud Environments</span>
+        <span class="skill-chip">Basic Monitoring &amp; Logging</span>
+      </div>
+    </div>
+
+    <div class="card p-7">
+      <div class="flex items-center gap-x-3 mb-5">
+        <i class="fa-solid fa-headset text-xl text-[var(--good)]"></i>
+        <h3 class="font-semibold text-lg">Support &amp; Tools</h3>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="skill-chip">Remote Desktop (RDP / TeamViewer)</span>
+        <span class="skill-chip">Ticketing Systems (Jira, Zendesk)</span>
+        <span class="skill-chip">Documentation &amp; Runbooks</span>
+        <span class="skill-chip">Customer Communication</span>
+        <span class="skill-chip">Troubleshooting Methodology</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="mt-8 text-center text-sm text-[var(--muted)] mono">
+    currently: <span class="text-[var(--amber)]">CompTIA A+</span> · next: <span class="text-[var(--amber)]">AWS Cloud Practitioner</span>
+  </p>
+</section>
+
+<!-- CTA -->
+<section class="max-w-7xl mx-auto px-6 py-16 border-t divider">
+  <div class="panel p-10 md:p-14 text-center">
+    <h2 class="section-title text-2xl md:text-3xl mb-4">Ready to contribute remotely from day one</h2>
+    <p class="max-w-md mx-auto text-[var(--muted)] mb-8">
+      Strong fundamentals, clear communication, and a genuine interest in helping users and teams succeed.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 btn-primary">Let's Connect</a>
+      <a href="resume.html" class="inline-flex items-center justify-center px-7 py-3.5 btn-outline">View Résumé</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Contact / Footer -->
+<footer id="contact" class="border-t divider bg-[var(--panel-2)]/40">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="section-label mb-2">~/contact</div>
+      <h2 class="section-title text-3xl mb-3">Let's work together</h2>
+      <p class="text-[var(--muted)] mb-8">Actively seeking remote entry-level IT Support, Help Desk, or Cloud Support roles.</p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+        <a href="mailto:ricardoescalante835@icloud.com" class="inline-flex items-center justify-center gap-x-3 px-7 py-3.5 btn-primary">
+          <i class="fa-solid fa-envelope"></i><span>Email Me</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ricardo-escalante-7435a2375" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-x-3 px-7 py-3.5 btn-outline">
+          <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
+        </a>
+      </div>
+
+      <div class="text-xs text-[var(--muted)] mono">
+        Full Sail University · B.S. Cybersecurity candidate<br>
+        Los Angeles, CA · Open to Remote IT Support &amp; Cloud Roles
+      </div>
+    </div>
+  </div>
+  <div class="border-t divider py-6 text-center text-xs text-[var(--muted)] mono">
+    © 2026 Ricardo Escalante · built with care for systems that work
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', () => {
+      const menu = document.createElement('div');
+      menu.className = 'fixed inset-0 bg-black/95 z-[100] flex flex-col p-6 md:hidden';
+      menu.setAttribute('role', 'dialog');
+      menu.setAttribute('aria-modal', 'true');
+      menu.setAttribute('aria-label', 'Navigation menu');
+      menu.innerHTML = `
+        <div class="flex justify-between items-center mb-10">
+          <span class="mono font-semibold text-lg text-[var(--text)]">escalante<span class="text-[var(--amber)]">@</span>support</span>
+          <button class="text-3xl text-white" type="button" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <div class="flex flex-col text-xl gap-y-6 mono">
+          <a href="#about" class="text-white">~/about</a>
+          <a href="#education" class="text-white">~/education</a>
+          <a href="#certifications" class="text-white">~/certs</a>
+          <a href="#projects" class="text-white">~/projects</a>
+          <a href="#skills" class="text-white">~/skills</a>
+          <a href="resume.html" class="text-white">~/résumé</a>
+          <a href="#contact" class="mt-4 inline-block px-6 py-3 btn-primary text-center">Contact Me</a>
+        </div>`;
+      document.body.appendChild(menu);
+      document.body.style.overflow = 'hidden';
+      mobileBtn.setAttribute('aria-expanded', 'true');
+      const closeBtn = menu.querySelector('button');
+      const closeMenu = () => {
+        menu.remove();
+        document.body.style.overflow = '';
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileBtn.focus();
+      };
+      closeBtn.onclick = closeMenu;
+      menu.querySelectorAll('a').forEach(a => a.onclick = closeMenu);
+      menu.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+      });
+      closeBtn.focus();
+    });
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Live clock (Pacific Time)
+  function updateClock() {
+    const el = document.getElementById('clock-display');
+    if (!el) return;
+    const t = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour12: false });
+    el.textContent = t + ' PT';
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Uptime counter — days since Ricardo started this journey (set to a fixed epoch)
+  const EPOCH = new Date('2025-01-06T00:00:00');
+  function updateUptime() {
+    const now = new Date();
+    const diff = now - EPOCH;
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    const daysEl = document.getElementById('uptime-days');
+    const hmsEl = document.getElementById('uptime-hms');
+    if (daysEl) daysEl.textContent = days + 'd';
+    if (hmsEl) hmsEl.textContent =
+      String(hrs).padStart(2,'0') + ':' + String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+  }
+  updateUptime();
+  setInterval(updateUptime, 1000);
+</script>
+</body>
+</html>
