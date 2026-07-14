@@ -1,0 +1,11 @@
+{
+  "name": "ricardo-escalante-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

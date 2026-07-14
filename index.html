@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Ricardo Escalante is an IT and cloud support specialist focused on systems administration, troubleshooting, AWS, Microsoft 365, and clear technical documentation.">
 <meta name="theme-color" content="#0a0d10">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ricardo Escalante | IT &amp; Cloud Support">
+<meta property="og:description" content="IT and cloud support portfolio featuring systems administration, AWS, Microsoft 365, troubleshooting, and technical documentation.">
 <title>Ricardo Escalante | IT &amp; Cloud Support</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/tailwind.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
@@ -49,8 +53,10 @@ body{
 .led{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 6px var(--good);animation:pulse 2.2s ease-in-out infinite;}
 .led.amber{background:var(--amber);box-shadow:0 0 6px var(--amber);}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
-.path-link{font-family:'IBM Plex Mono',monospace;color:var(--muted);transition:color .15s ease;}
-.path-link:hover{color:var(--amber);}
+.path-link{position:relative;padding:.5rem 0;font-family:'IBM Plex Mono',monospace;color:var(--muted);transition:color .15s ease;}
+.path-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .15s ease;}
+.path-link:hover,.path-link.active{color:var(--amber);}
+.path-link:hover::after,.path-link.active::after{transform:scaleX(1);}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;padding:3px 9px;border:1px solid var(--line);border-radius:3px;color:var(--muted);}
 .tag.on{color:var(--amber);border-color:var(--amber-dim);background:rgba(255,176,32,.06);}
 .tag.info{color:var(--cyan);border-color:#1c4a52;background:rgba(79,209,224,.06);}
@@ -96,7 +102,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
 </div>
 
 <!-- Navbar -->
-<nav class="bg-[#0a0d10]/95 backdrop-blur border-b hairline sticky top-0 z-50">
+<nav class="bg-[#0a0d10]/95 backdrop-blur border-b hairline sticky top-0 z-50 shadow-[0_12px_35px_rgba(0,0,0,.18)]" aria-label="Primary">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex justify-between items-center h-16">
       <a href="#main-content" class="flex items-center gap-x-3" aria-label="Ricardo Escalante, home">
@@ -112,6 +118,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <a href="#certifications" class="path-link">~/certs</a>
         <a href="#projects" class="path-link">~/projects</a>
         <a href="#skills" class="path-link">~/skills</a>
+        <a href="#contact" class="path-link hidden lg:inline">~/contact</a>
       </div>
 
       <div class="flex items-center gap-x-4">
@@ -129,20 +136,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
 
 <main id="main-content">
 <!-- Hero -->
-<section class="max-w-7xl mx-auto px-6 pt-14 sm:pt-16 pb-20">
-  <div class="grid md:grid-cols-12 gap-10 items-start">
+<section class="max-w-7xl mx-auto px-6 pt-14 sm:pt-16 pb-20 lg:min-h-[calc(100vh-6rem)] lg:flex lg:items-center">
+  <div class="w-full grid md:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center">
     <div class="md:col-span-7">
       <div class="inline-flex items-center gap-x-2 px-3 py-1 border hairline rounded mb-6">
         <span class="led"></span>
         <span class="mono text-xs text-[var(--muted)]">OPEN_TO_REMOTE = true</span>
       </div>
 
-      <h1 class="text-4xl sm:text-5xl md:text-6xl leading-[1.05] font-semibold tracking-tight mb-5">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] font-semibold tracking-tight mb-5">
         Ricardo Escalante
       </h1>
       <p class="mono text-[var(--amber)] text-lg mb-6">IT &amp; Cloud Support Specialist</p>
 
-      <p class="max-w-lg text-lg text-[var(--muted)] mb-8 leading-relaxed">
+      <p class="max-w-xl text-lg xl:text-xl text-[var(--muted)] mb-8 leading-relaxed">
         I keep systems running and people unblocked through structured troubleshooting,
         clear documentation, and hands-on work across Active Directory, Microsoft 365,
         and cloud infrastructure.
@@ -341,7 +348,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
 
   <div class="grid md:grid-cols-2 gap-6">
 
-    <div class="card p-7 group">
+    <div class="card p-7 group flex flex-col">
       <div class="flex items-start justify-between">
         <div>
           <span class="tag info">IT SUPPORT · SYSTEMS</span>
@@ -361,13 +368,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <div>· Implemented password policies and software deployment via GPO</div>
         <div>· Documented troubleshooting for login failures, DNS issues, and access problems</div>
       </div>
-      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
         <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>docs ready</span>
         <a href="mailto:ricardoescalante835@icloud.com?subject=Virtualized%20IT%20Home%20Lab" class="text-[var(--amber)] hover:underline">request case study →</a>
       </div>
     </div>
 
-    <div class="card p-7 group">
+    <div class="card p-7 group flex flex-col">
       <div class="flex items-start justify-between">
         <div>
           <span class="tag info">CLOUD · SUPPORT</span>
@@ -387,13 +394,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <div>· Implemented CDN for performance &amp; global reach</div>
         <div>· Documented common issues (origin errors, cache invalidation)</div>
       </div>
-      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
         <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>live demo available</span>
         <a href="mailto:ricardoescalante835@icloud.com?subject=AWS%20Cloud%20Deployment" class="text-[var(--amber)] hover:underline">request demo →</a>
       </div>
     </div>
 
-    <div class="card p-7 group">
+    <div class="card p-7 group flex flex-col">
       <div class="flex items-start justify-between">
         <div>
           <span class="tag info">DOCUMENTATION · SUPPORT</span>
@@ -411,13 +418,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
       <div class="flex flex-wrap gap-2 text-xs text-[var(--muted)] mb-6">
         <span>Wi-Fi &amp; Network</span><span>·</span><span>Login &amp; Auth</span><span>·</span><span>Software Deployment</span><span>·</span><span>Printer Issues</span><span>·</span><span>Remote Access</span><span>·</span><span>Cloud Connectivity</span>
       </div>
-      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
         <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>ready for onboarding</span>
         <a href="mailto:ricardoescalante835@icloud.com?subject=IT%20Troubleshooting%20Knowledge%20Base" class="text-[var(--amber)] hover:underline">request samples →</a>
       </div>
     </div>
 
-    <div class="card p-7 group">
+    <div class="card p-7 group flex flex-col">
       <div class="flex items-start justify-between">
         <div>
           <span class="tag info">CLOUD ADMIN · IAM</span>
@@ -437,7 +444,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <div>· MFA troubleshooting &amp; password resets</div>
         <div>· Mailbox &amp; Teams access issues</div>
       </div>
-      <div class="pt-5 border-t divider flex justify-between items-center text-xs mono">
+      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
         <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>highly relevant</span>
         <a href="mailto:ricardoescalante835@icloud.com?subject=Microsoft%20365%20Admin%20Sandbox" class="text-[var(--amber)] hover:underline">request notes →</a>
       </div>
@@ -602,6 +609,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
       }
     });
   });
+
+  const sectionLinks = [...document.querySelectorAll('.path-link[href^="#"]')];
+  const sections = sectionLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries.find(entry => entry.isIntersecting);
+      if (!visible) return;
+      sectionLinks.forEach(link => {
+        const active = link.getAttribute('href') === `#${visible.target.id}`;
+        link.classList.toggle('active', active);
+        if (active) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }, { rootMargin: '-20% 0px -65%', threshold: 0.01 });
+    sections.forEach(section => sectionObserver.observe(section));
+  }
 
   // Live clock (Pacific Time)
   function updateClock() {

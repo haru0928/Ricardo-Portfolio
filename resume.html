@@ -6,9 +6,10 @@
     <meta name="description" content="Résumé for Ricardo Escalante, an IT and cloud support specialist with hands-on experience in systems administration, AWS, Microsoft 365, and technical troubleshooting.">
     <meta name="theme-color" content="#0f172a">
     <title>Ricardo Escalante | IT &amp; Cloud Support Résumé</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/tailwind.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
@@ -47,14 +48,22 @@
 
         @page {
             size: letter;
-            margin: 0.35in;
+            margin: 0.25in;
         }
 
         @media print {
             * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-            body { background: white; padding: 0 !important; }
-            .resume-container { box-shadow: none; border: 0; border-radius: 0; margin: 0; max-width: none; }
-            .no-print { display: none; }
+            html, body { background: white; padding: 0 !important; font-size: 10px !important; line-height: 1.35 !important; }
+            .resume-container { box-shadow: none !important; border: 0 !important; border-radius: 0 !important; margin: 0 !important; max-width: none !important; }
+            .resume-header { padding: 18px 24px !important; }
+            .resume-header h1 { font-size: 27px !important; }
+            .resume-header p { font-size: 14px !important; }
+            .resume-content { padding: 16px 24px !important; }
+            .resume-content section { margin-bottom: 13px !important; }
+            .resume-content .space-y-5 > :not([hidden]) ~ :not([hidden]) { margin-top: 10px !important; }
+            .resume-footer { padding: 9px 24px !important; }
+            .section-title { font-size: 10px !important; margin-bottom: 5px !important; }
+            .no-print { display: none !important; }
             .avoid-break { break-inside: avoid; }
         }
     </style>
@@ -76,7 +85,7 @@
     <main class="resume-container mx-4 sm:mx-auto border border-slate-200 rounded-2xl overflow-hidden">
 
         <!-- Header -->
-        <header class="bg-slate-900 text-white px-6 sm:px-10 pt-8 sm:pt-10 pb-8">
+        <header class="resume-header bg-slate-900 text-white px-6 sm:px-10 pt-8 sm:pt-10 pb-8">
             <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
                 <div>
                     <h1 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Ricardo Escalante</h1>
@@ -90,7 +99,7 @@
             </div>
         </header>
 
-        <div class="px-6 sm:px-10 py-8">
+        <div class="resume-content px-6 sm:px-10 py-8">
 
             <!-- Professional Summary -->
             <section class="mb-8 avoid-break">
@@ -184,7 +193,7 @@
         </div>
 
         <!-- Footer -->
-        <div class="bg-slate-50 px-10 py-5 text-center text-xs text-slate-500 border-t">
+        <div class="resume-footer bg-slate-50 px-10 py-5 text-center text-xs text-slate-500 border-t">
             Open to remote IT Support, Help Desk, and Cloud Support opportunities • Available immediately
         </div>
     </main>
