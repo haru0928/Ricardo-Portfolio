@@ -174,7 +174,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
           <div class="text-[11px] text-[var(--muted)] mono mt-1">GUIDES WRITTEN</div>
         </div>
         <div class="panel px-4 py-3">
-          <div class="mono text-2xl text-[var(--amber)]">3</div>
+          <div class="mono text-2xl text-[var(--amber)]">4</div>
           <div class="text-[11px] text-[var(--muted)] mono mt-1">LABS DEPLOYED</div>
         </div>
       </div>
@@ -305,30 +305,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <div class="flex items-start justify-between mb-4">
           <div>
             <span class="tag on">IN PROGRESS</span>
-            <h3 class="font-semibold text-xl mt-3">CompTIA A+</h3>
-            <p class="text-sm text-[var(--muted)] mono">Core 1 (220-1101) &amp; Core 2 (220-1102)</p>
+            <h3 class="font-semibold text-xl mt-3">CompTIA Security+</h3>
+            <p class="text-sm text-[var(--muted)] mono">SY0-701</p>
           </div>
           <i class="fa-solid fa-certificate text-3xl text-[var(--amber)]"></i>
         </div>
         <p class="text-sm text-[var(--muted)]">
-          Studying with Professor Messer and practice exams. Expected completion:
-          <span class="text-[var(--text)] font-medium">August 2026</span>.
+          Currently studying for the CompTIA Security+ exam, reinforced with hands-on SIEM and
+          endpoint monitoring labs.
         </p>
         <div class="mt-4 flex flex-wrap gap-2">
-          <span class="tag">Hardware</span>
-          <span class="tag">Networking</span>
-          <span class="tag">Operating Systems</span>
-          <span class="tag">Security</span>
-          <span class="tag">Troubleshooting</span>
+          <span class="tag">Threats &amp; Vulnerabilities</span>
+          <span class="tag">Security Architecture</span>
+          <span class="tag">Security Operations</span>
+          <span class="tag">Identity &amp; Access</span>
+          <span class="tag">Risk Management</span>
         </div>
       </div>
 
       <div class="card p-7 flex flex-col justify-center items-center text-center border-dashed">
         <i class="fa-solid fa-plus text-2xl mb-3 text-[var(--muted)]"></i>
-        <p class="text-sm text-[var(--muted)]">Next target:
-          <span class="text-[var(--text)] font-medium">AWS Cloud Practitioner</span> or
-          <span class="text-[var(--text)] font-medium">CompTIA Network+</span>
+        <p class="text-sm text-[var(--muted)]">Next in line:
+          <span class="text-[var(--text)] font-medium">CompTIA CySA+</span>
         </p>
+        <p class="text-xs text-[var(--muted)] mono mt-1">CS0-003 · Cybersecurity Analyst</p>
       </div>
     </div>
   </div>
@@ -347,6 +347,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
   </div>
 
   <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="card p-7 group flex flex-col md:col-span-2">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="tag info">SECURITY OPERATIONS · SIEM</span>
+          <h3 class="font-semibold text-2xl mt-4 mb-2">Hybrid Enterprise SIEM &amp; Endpoint Telemetry Lab</h3>
+        </div>
+        <i class="fa-solid fa-shield-halved text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
+      </div>
+      <p class="text-[var(--muted)] mb-6 text-[15px]">
+        Deployed a containerized Wazuh SIEM/XDR stack on Apple Silicon and enrolled an Ubuntu ARM64
+        endpoint agent over an isolated host-only network. Simulated an SSH brute-force attack and
+        verified real-time detection and alerting in the Wazuh dashboard.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">Wazuh 4.x</span><span class="tag">Docker Compose</span><span class="tag">VirtualBox</span><span class="tag">Ubuntu Server ARM64</span><span class="tag">MITRE ATT&amp;CK T1110</span>
+      </div>
+      <div class="grid md:grid-cols-3 gap-x-6 gap-y-1 text-sm text-[var(--muted)] mb-6">
+        <div>· Sandboxed telemetry on a host-only network (192.168.56.0/24)</div>
+        <div>· Enrolled and managed a Linux Wazuh agent against the host manager</div>
+        <div>· Traced auth.log events from endpoint to correlation engine alerts</div>
+      </div>
+      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
+        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>detection verified</span>
+        <a href="https://github.com/haru0928/17S-Cyberspace-Operations-Lab" target="_blank" rel="noreferrer" class="text-[var(--amber)] hover:underline">view lab on github →</a>
+      </div>
+    </div>
 
     <div class="card p-7 group flex flex-col">
       <div class="flex items-start justify-between">
@@ -475,6 +502,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <span class="skill-chip">Virtualization (Hyper-V/VirtualBox)</span>
         <span class="skill-chip">Networking (TCP/IP, DNS, DHCP)</span>
         <span class="skill-chip">PowerShell Basics</span>
+        <span class="skill-chip">SIEM / XDR (Wazuh)</span>
+        <span class="skill-chip">Docker</span>
+        <span class="skill-chip">Log Analysis &amp; Threat Detection</span>
       </div>
     </div>
 
@@ -508,7 +538,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
   </div>
 
   <p class="mt-8 text-center text-sm text-[var(--muted)] mono">
-    currently: <span class="text-[var(--amber)]">CompTIA A+</span> · next: <span class="text-[var(--amber)]">AWS Cloud Practitioner</span>
+    currently: <span class="text-[var(--amber)]">CompTIA Security+</span> · next: <span class="text-[var(--amber)]">CompTIA CySA+</span>
   </p>
 </section>
 
