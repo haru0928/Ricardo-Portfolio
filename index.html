@@ -384,20 +384,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <i class="fa-solid fa-server text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
       </div>
       <p class="text-[var(--muted)] mb-6 text-[15px]">
-        Built a complete Active Directory domain environment using VirtualBox. Configured users,
-        Group Policies, shared resources, and simulated common enterprise issues.
+        Deployed a Windows Server 2022 domain controller and a domain-joined Windows 11 client
+        on Apple Silicon via UTM. Built the <span class="mono">corp.local</span> domain, a least-privilege
+        OU structure, and a GPO security baseline.
       </p>
       <div class="flex flex-wrap gap-2 mb-6">
-        <span class="tag">VirtualBox</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">RDP</span>
+        <span class="tag">UTM / QEMU</span><span class="tag">Windows Server 2022</span><span class="tag">Windows 11</span><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">DNS</span>
       </div>
       <div class="text-sm text-[var(--muted)] space-y-1 mb-6">
-        <div>· Created and managed domain users &amp; OUs</div>
-        <div>· Implemented password policies and software deployment via GPO</div>
-        <div>· Documented troubleshooting for login failures, DNS issues, and access problems</div>
+        <div>· Promoted DC01 with static IP and DNS; designed IT_Ops, SecOps, Users &amp; Workstations OUs</div>
+        <div>· Fixed cross-architecture subnet isolation (x86_64 emulation + ARM64) to complete the domain join</div>
+        <div>· Enforced a 5-attempt account lockout policy via the Workstation-Security-Baseline GPO</div>
       </div>
       <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
         <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>docs ready</span>
-        <a href="mailto:ricardoescalante835@icloud.com?subject=Virtualized%20IT%20Home%20Lab" class="text-[var(--amber)] hover:underline">request case study →</a>
+        <a href="https://github.com/haru0928/Active-Directory-HomeLab" target="_blank" rel="noreferrer" class="text-[var(--amber)] hover:underline">view lab on github →</a>
       </div>
     </div>
 
@@ -499,7 +500,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <span class="skill-chip">Windows Server</span>
         <span class="skill-chip">Active Directory</span>
         <span class="skill-chip">Group Policy</span>
-        <span class="skill-chip">Virtualization (Hyper-V/VirtualBox)</span>
+        <span class="skill-chip">Virtualization (UTM/VirtualBox/Hyper-V)</span>
         <span class="skill-chip">Networking (TCP/IP, DNS, DHCP)</span>
         <span class="skill-chip">PowerShell Basics</span>
         <span class="skill-chip">SIEM / XDR (Wazuh)</span>
