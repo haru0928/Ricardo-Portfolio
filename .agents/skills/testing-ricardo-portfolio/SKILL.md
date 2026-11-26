@@ -21,7 +21,7 @@ Open `http://127.0.0.1:8000/index.html` in the existing Chrome session.
 
 ## Core desktop flow
 
-1. Confirm the hero, live Pacific clock, uptime value, and three metrics render without placeholders.
+1. Confirm the hero, live Pacific clock, uptime value, and two metrics (days building, labs deployed) render without placeholders.
 2. Use the sticky section navigation and verify each click lands on the matching heading.
 3. Open `resume.html` through the visible Résumé control.
 4. Verify current education details and confirm required web fonts with `document.fonts.check` at their actual weights.
