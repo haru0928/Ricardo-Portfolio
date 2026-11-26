@@ -174,7 +174,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
           <div class="text-[11px] text-[var(--muted)] mono mt-1">GUIDES WRITTEN</div>
         </div>
         <div class="panel px-4 py-3">
-          <div class="mono text-2xl text-[var(--amber)]">4</div>
+          <div class="mono text-2xl text-[var(--amber)]">5</div>
           <div class="text-[11px] text-[var(--muted)] mono mt-1">LABS DEPLOYED</div>
         </div>
       </div>
@@ -378,6 +378,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
     <div class="card p-7 group flex flex-col">
       <div class="flex items-start justify-between">
         <div>
+          <span class="tag info">NETWORK SECURITY · RECON</span>
+          <h3 class="font-semibold text-2xl mt-4 mb-2">Network Reconnaissance &amp; Packet Analysis Lab</h3>
+        </div>
+        <i class="fa-solid fa-network-wired text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
+      </div>
+      <p class="text-[var(--muted)] mb-6 text-[15px]">
+        Built a dual-VM attacker/target sandbox in VirtualBox on a Windows 11 host. Ran Nmap scans
+        from Kali Linux against a Windows target and analyzed the resulting TCP/IP traffic in Wireshark.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tag">Kali Linux</span><span class="tag">Nmap</span><span class="tag">Wireshark + Npcap</span><span class="tag">VirtualBox</span><span class="tag">Windows Defender Firewall</span>
+      </div>
+      <div class="text-sm text-[var(--muted)] space-y-1 mb-6">
+        <div>· Contained scans on an isolated host-only network (192.168.56.0/24)</div>
+        <div>· Compared half-open SYN (-sS) and full TCP connect (-sT) scans at the packet level</div>
+        <div>· Showed how firewall inbound blocking shifts port states from closed to filtered</div>
+      </div>
+      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
+        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>packets analyzed</span>
+        <a href="https://github.com/haru0928/Network-Recon-Packet-Analysis-Lab" target="_blank" rel="noreferrer" class="text-[var(--amber)] hover:underline">view lab on github →</a>
+      </div>
+    </div>
+
+    <div class="card p-7 group flex flex-col">
+      <div class="flex items-start justify-between">
+        <div>
           <span class="tag info">IT SUPPORT · SYSTEMS</span>
           <h3 class="font-semibold text-2xl mt-4 mb-2">Virtualized IT Home Lab</h3>
         </div>
@@ -425,30 +451,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
       <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
         <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>live demo available</span>
         <a href="mailto:ricardoescalante835@icloud.com?subject=AWS%20Cloud%20Deployment" class="text-[var(--amber)] hover:underline">request demo →</a>
-      </div>
-    </div>
-
-    <div class="card p-7 group flex flex-col">
-      <div class="flex items-start justify-between">
-        <div>
-          <span class="tag info">DOCUMENTATION · SUPPORT</span>
-          <h3 class="font-semibold text-2xl mt-4 mb-2">IT Troubleshooting Knowledge Base</h3>
-        </div>
-        <i class="fa-solid fa-book text-3xl text-[var(--muted)] group-hover:text-[var(--amber)] transition-colors"></i>
-      </div>
-      <p class="text-[var(--muted)] mb-6 text-[15px]">
-        Created a searchable collection of 12+ step-by-step troubleshooting guides for common
-        Tier 1 and Tier 2 issues, written for both technical and non-technical users.
-      </p>
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span class="tag">Markdown</span><span class="tag">GitHub</span><span class="tag">Clear Communication</span><span class="tag">Problem Solving</span>
-      </div>
-      <div class="flex flex-wrap gap-2 text-xs text-[var(--muted)] mb-6">
-        <span>Wi-Fi &amp; Network</span><span>·</span><span>Login &amp; Auth</span><span>·</span><span>Software Deployment</span><span>·</span><span>Printer Issues</span><span>·</span><span>Remote Access</span><span>·</span><span>Cloud Connectivity</span>
-      </div>
-      <div class="mt-auto pt-5 border-t divider flex justify-between items-center text-xs mono">
-        <span class="text-[var(--good)]"><i class="fa-solid fa-circle-check mr-1"></i>ready for onboarding</span>
-        <a href="mailto:ricardoescalante835@icloud.com?subject=IT%20Troubleshooting%20Knowledge%20Base" class="text-[var(--amber)] hover:underline">request samples →</a>
       </div>
     </div>
 
@@ -506,6 +508,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
         <span class="skill-chip">SIEM / XDR (Wazuh)</span>
         <span class="skill-chip">Docker</span>
         <span class="skill-chip">Log Analysis &amp; Threat Detection</span>
+        <span class="skill-chip">Packet Analysis (Wireshark)</span>
+        <span class="skill-chip">Network Scanning (Nmap / Kali Linux)</span>
       </div>
     </div>
 
